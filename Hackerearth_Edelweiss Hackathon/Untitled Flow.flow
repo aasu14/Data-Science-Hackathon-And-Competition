@@ -1,0 +1,125 @@
+{
+  "version": "1.0.0",
+  "cells": [
+    {
+      "type": "cs",
+      "input": "assist"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Downloads\\\\train_foreclosure.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\train_foreclosure.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\train_foreclosure.csv\"]\n  destination_frame: \"train_foreclosure.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 2\n  single_quotes: false\n  column_names: [\"AGREEMENTID\",\"FORECLOSURE\"]\n  column_types: [\"Numeric\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 13760"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"train_foreclosure.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameData \"train_foreclosure.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "assist splitFrame, \"train_foreclosure.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "splitFrame \"train_foreclosure.hex\", [0.75], [\"frame_0.750\",\"frame_0.250\"], 70299"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"frame_0.750\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel \"deeplearning\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel 'deeplearning', {\"model_id\":\"deeplearning-db4f24b7-4a10-4aeb-8d90-07ce6e328a9a\",\"training_frame\":\"frame_0.750\",\"validation_frame\":\"frame_0.250\",\"nfolds\":0,\"response_column\":\"FORECLOSURE\",\"ignored_columns\":[],\"ignore_const_cols\":true,\"activation\":\"Rectifier\",\"hidden\":[200,200],\"epochs\":10,\"variable_importances\":true,\"score_each_iteration\":false,\"checkpoint\":\"\",\"use_all_factor_levels\":true,\"standardize\":true,\"train_samples_per_iteration\":-2,\"adaptive_rate\":true,\"input_dropout_ratio\":0,\"l1\":0,\"l2\":0,\"loss\":\"Automatic\",\"distribution\":\"AUTO\",\"huber_alpha\":0.9,\"score_interval\":5,\"score_training_samples\":10000,\"score_validation_samples\":0,\"score_duty_cycle\":0.1,\"stopping_rounds\":5,\"stopping_metric\":\"AUTO\",\"stopping_tolerance\":0,\"max_runtime_secs\":0,\"autoencoder\":false,\"categorical_encoding\":\"AUTO\",\"export_checkpoints_dir\":\"\",\"pretrained_autoencoder\":\"\",\"overwrite_with_best_model\":true,\"target_ratio_comm_to_comp\":0.05,\"seed\":-1,\"rho\":0.99,\"epsilon\":1e-8,\"nesterov_accelerated_gradient\":true,\"max_w2\":3.4028235e+38,\"initial_weight_distribution\":\"UniformAdaptive\",\"regression_stop\":0.000001,\"diagnostics\":true,\"fast_mode\":true,\"force_load_balance\":true,\"single_node_mode\":false,\"shuffle_training_data\":false,\"missing_values_handling\":\"MeanImputation\",\"quiet_mode\":false,\"sparse\":false,\"col_major\":false,\"average_activation\":0,\"sparsity_beta\":0,\"max_categorical_features\":2147483647,\"reproducible\":false,\"export_weights_and_biases\":false,\"mini_batch_size\":1,\"elastic_averaging\":false}"
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"deeplearning-db4f24b7-4a10-4aeb-8d90-07ce6e328a9a\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"deeplearning-db4f24b7-4a10-4aeb-8d90-07ce6e328a9a\""
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML"
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML {\"training_frame\":\"frame_0.750\",\"response_column\":\"FORECLOSURE\",\"validation_frame\":\"frame_0.250\",\"seed\":-1,\"max_models\":0,\"max_runtime_secs\":3600,\"stopping_metric\":\"AUTO\",\"sort_metric\":null,\"stopping_rounds\":3,\"stopping_tolerance\":-1,\"nfolds\":5,\"balance_classes\":false,\"class_sampling_factors\":[],\"max_after_balance_size\":5,\"keep_cross_validation_predictions\":true,\"keep_cross_validation_models\":true,\"keep_cross_validation_fold_assignment\":false,\"export_checkpoints_dir\":\"\",\"ignored_columns\":[],\"exclude_algos\":[\"XGBoost\",\"DeepLearning\",\"StackedEnsemble\"],\"project_name\":\"hackerearth\"}"
+    },
+    {
+      "type": "cs",
+      "input": "getLeaderboard \"hackerearth\""
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML {\"training_frame\":\"frame_0.750\",\"response_column\":\"FORECLOSURE\",\"validation_frame\":\"frame_0.250\",\"seed\":-1,\"max_models\":0,\"max_runtime_secs\":3600,\"stopping_metric\":\"AUTO\",\"sort_metric\":null,\"stopping_rounds\":3,\"stopping_tolerance\":-1,\"nfolds\":5,\"balance_classes\":false,\"class_sampling_factors\":[],\"max_after_balance_size\":5,\"keep_cross_validation_predictions\":true,\"keep_cross_validation_models\":true,\"keep_cross_validation_fold_assignment\":false,\"export_checkpoints_dir\":\"\",\"ignored_columns\":[],\"exclude_algos\":[\"GLM\",\"DRF\",\"GBM\"],\"project_name\":\"hackerearth\"}"
+    },
+    {
+      "type": "cs",
+      "input": "getLeaderboard \"hackerearth\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"StackedEnsemble_AllModels_AutoML_20190222_231614\""
+    },
+    {
+      "type": "cs",
+      "input": "importFiles"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Downloads\\\\test_foreclosure.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\test_foreclosure.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\test_foreclosure.csv\"]\n  destination_frame: \"test_foreclosure.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 2\n  single_quotes: false\n  column_names: [\"AGREEMENTID\",\"FORECLOSURE\"]\n  column_types: [\"Numeric\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 8341"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"test_foreclosure.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"StackedEnsemble_AllModels_AutoML_20190222_231614\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"StackedEnsemble_AllModels_AutoML_20190222_231614\", frame: \"test_foreclosure.hex\", predictions_frame: \"prediction-13c82cc8-0c86-41f4-b5a1-39adee73e0be\""
+    },
+    {
+      "type": "cs",
+      "input": "bindFrames \"combined-prediction-13c82cc8-0c86-41f4-b5a1-39adee73e0be\", [ \"prediction-13c82cc8-0c86-41f4-b5a1-39adee73e0be\", \"test_foreclosure.hex\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"combined-prediction-13c82cc8-0c86-41f4-b5a1-39adee73e0be\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameData \"combined-prediction-13c82cc8-0c86-41f4-b5a1-39adee73e0be\""
+    }
+  ]
+}
