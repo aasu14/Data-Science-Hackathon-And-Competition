@@ -1,0 +1,373 @@
+{
+  "version": "1.0.0",
+  "cells": [
+    {
+      "type": "cs",
+      "input": "assist"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Downloads\\\\Participants_Data_Final\\\\train.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\Participants_Data_Final\\\\train.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\Participants_Data_Final\\\\train.csv\"]\n  destination_frame: \"train.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 28\n  single_quotes: false\n  column_names: [\"TITLE\",\"RESTAURANT_ID\",\"CUISINES\",\"TIME\",\"CITY\",\"LOCALITY\",\"RATING\",\"VOTES\",\"COST\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"]\n  column_types: [\"Enum\",\"Numeric\",\"Enum\",\"Numeric\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"String\",\"Enum\",\"Enum\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 53656"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"train.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"train.hex\", column: \"VOTES\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"train.hex\", column: \"VOTES\""
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn {\"frame\":\"train.hex\",\"column\":\"VOTES\",\"method\":\"mean\",\"groupByColumns\":[\"VOTES\"]}"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn {\"frame\":\"train.hex\",\"column\":\"VOTES\",\"method\":\"mean\",\"groupByColumns\":[\"VOTES\"]}"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameData \"train.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"train.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "importFiles"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Downloads\\\\Participants_Data_Final\\\\Data_Train.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\Participants_Data_Final\\\\Data_Train.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\Participants_Data_Final\\\\Data_Train.csv\"]\n  destination_frame: \"Data_Train1.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 9\n  single_quotes: false\n  column_names: [\"TITLE\",\"RESTAURANT_ID\",\"CUISINES\",\"TIME\",\"CITY\",\"LOCALITY\",\"RATING\",\"VOTES\",\"COST\"]\n  column_types: [\"Enum\",\"Numeric\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Numeric\",\"Enum\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 89835"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"Data_Train1.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"Data_Train1.hex\", column: \"TITLE\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"Data_Train1.hex\", column: \"TITLE\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameData \"Data_Train1.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"Data_Train1.hex\", column: \"CUISINES\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"Data_Train1.hex\", column: \"CUISINES\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"Data_Train1.hex\", column: \"TIME\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"Data_Train1.hex\", column: \"TIME\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"Data_Train1.hex\", column: \"CITY\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"Data_Train1.hex\", column: \"CITY\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"Data_Train1.hex\", column: \"LOCALITY\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"Data_Train1.hex\", column: \"LOCALITY\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameData \"Data_Train1.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"Data_Train1.hex\", column: \"VOTES\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"Data_Train1.hex\", column: \"VOTES\""
+    },
+    {
+      "type": "cs",
+      "input": "assist splitFrame, \"Data_Train1.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "splitFrame \"Data_Train1.hex\", [0.75], [\"frame_0.750\",\"frame_0.250\"], 915105"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Downloads\\\\Participants_Data_Final\\\\Data_Test.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\Participants_Data_Final\\\\Data_Test.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\Participants_Data_Final\\\\Data_Test.csv\"]\n  destination_frame: \"Data_Test.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 8\n  single_quotes: false\n  column_names: [\"TITLE\",\"RESTAURANT_ID\",\"CUISINES\",\"TIME\",\"CITY\",\"LOCALITY\",\"RATING\",\"VOTES\"]\n  column_types: [\"Enum\",\"Numeric\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Numeric\",\"Enum\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 28844"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"Data_Test.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"Data_Test.hex\", column: \"TITLE\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameData \"Data_Test.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"Data_Test.hex\", column: \"CUISINES\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"Data_Test.hex\", column: \"TIME\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"Data_Test.hex\", column: \"CITY\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"Data_Test.hex\", column: \"LOCALITY\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameData \"Data_Test.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "getColumnSummary \"Data_Test.hex\", \"RATING\""
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"Data_Test.hex\", column: \"RATING\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameData \"Data_Test.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn {\"frame\":\"Data_Test.hex\",\"column\":\"RATING\",\"method\":\"mean\",\"groupByColumns\":[\"RATING\"]}"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameData \"Data_Test.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"Data_Test.hex\", column: \"VOTES\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"Data_Test.hex\", column: \"VOTES\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"Data_Train1.hex\", column: \"VOTES\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"Data_Train1.hex\", column: \"VOTES\""
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML"
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML {\"training_frame\":\"frame_0.750\",\"response_column\":\"COST\",\"validation_frame\":\"frame_0.250\",\"seed\":-1,\"max_models\":0,\"max_runtime_secs\":3600,\"stopping_metric\":\"AUTO\",\"sort_metric\":null,\"stopping_rounds\":3,\"stopping_tolerance\":-1,\"nfolds\":5,\"balance_classes\":false,\"class_sampling_factors\":[],\"max_after_balance_size\":5,\"keep_cross_validation_predictions\":true,\"keep_cross_validation_models\":true,\"keep_cross_validation_fold_assignment\":false,\"export_checkpoints_dir\":\"\",\"ignored_columns\":[],\"exclude_algos\":[],\"project_name\":\"final\"}"
+    },
+    {
+      "type": "cs",
+      "input": "getLeaderboard \"final\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"GBM_grid_1_AutoML_20190417_164157_model_16\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"GBM_grid_1_AutoML_20190417_164157_model_16\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"StackedEnsemble_AllModels_AutoML_20190417_164157\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"StackedEnsemble_AllModels_AutoML_20190417_164157\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"StackedEnsemble_AllModels_AutoML_20190417_164157\", frame: \"Data_Test.hex\", predictions_frame: \"prediction-b1a595db-bb79-4f8f-947c-e61537d97939\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-b1a595db-bb79-4f8f-947c-e61537d97939\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"GBM_grid_1_AutoML_20190417_164157_model_16\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"GBM_grid_1_AutoML_20190417_164157_model_16\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"GBM_grid_1_AutoML_20190417_164157_model_16\", frame: \"Data_Test.hex\", predictions_frame: \"prediction-96904756-4b40-42c9-9e10-f6ed69005f99\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-96904756-4b40-42c9-9e10-f6ed69005f99\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameData \"prediction-96904756-4b40-42c9-9e10-f6ed69005f99\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"DeepLearning_grid_1_AutoML_20190417_164157_model_4\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"DeepLearning_grid_1_AutoML_20190417_164157_model_4\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"DeepLearning_grid_1_AutoML_20190417_164157_model_4\", frame: \"Data_Test.hex\", predictions_frame: \"prediction-14846a71-9f9f-4371-9ac6-4b018a3954c9\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-14846a71-9f9f-4371-9ac6-4b018a3954c9\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"StackedEnsemble_BestOfFamily_AutoML_20190417_164157\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"StackedEnsemble_BestOfFamily_AutoML_20190417_164157\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"StackedEnsemble_BestOfFamily_AutoML_20190417_164157\", frame: \"Data_Test.hex\", predictions_frame: \"prediction-1465d6d2-5154-49f0-9957-09f8788d36e1\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-1465d6d2-5154-49f0-9957-09f8788d36e1\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"GBM_grid_1_AutoML_20190417_164157_model_3\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"GBM_grid_1_AutoML_20190417_164157_model_3\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"GBM_grid_1_AutoML_20190417_164157_model_3\", frame: \"Data_Test.hex\", predictions_frame: \"prediction-286011aa-d5ea-4fd5-85a5-0187406fcb6a\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-286011aa-d5ea-4fd5-85a5-0187406fcb6a\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"DeepLearning_grid_1_AutoML_20190417_164157_model_5\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"DeepLearning_grid_1_AutoML_20190417_164157_model_5\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"DeepLearning_grid_1_AutoML_20190417_164157_model_5\", frame: \"Data_Test.hex\", predictions_frame: \"prediction-2cba8902-e909-47de-b33d-360c2e9ea6ec\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-2cba8902-e909-47de-b33d-360c2e9ea6ec\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"XRT_1_AutoML_20190417_164157\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"XRT_1_AutoML_20190417_164157\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"XRT_1_AutoML_20190417_164157\", frame: \"Data_Test.hex\", predictions_frame: \"prediction-dfbd1c04-a083-4871-a6bc-e7927eaf3cd9\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-dfbd1c04-a083-4871-a6bc-e7927eaf3cd9\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"DRF_1_AutoML_20190417_164157\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"DRF_1_AutoML_20190417_164157\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"DRF_1_AutoML_20190417_164157\", frame: \"Data_Test.hex\", predictions_frame: \"prediction-55fdcee6-fb0d-4e61-bcfa-082a444d860c\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-55fdcee6-fb0d-4e61-bcfa-082a444d860c\""
+    }
+  ]
+}
