@@ -1,0 +1,365 @@
+{
+  "version": "1.0.0",
+  "cells": [
+    {
+      "type": "cs",
+      "input": "assist"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\mytrain.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\mytrain.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\mytrain.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\mytrain.csv\"]\n  destination_frame: \"mytrain.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 38\n  single_quotes: false\n  column_names: [\"UniqueID\",\"disbursed_amount\",\"asset_cost\",\"ltv\",\"branch_id\",\"supplier_id\",\"manufacturer_id\",\"Current_pincode_ID\",\"Employment.Type\",\"State_ID\",\"Employee_code_ID\",\"MobileNo_Avl_Flag\",\"Aadhar_flag\",\"PAN_flag\",\"VoterID_flag\",\"Driving_flag\",\"Passport_flag\",\"PERFORM_CNS.SCORE\",\"PERFORM_CNS.SCORE.DESCRIPTION\",\"PRI.NO.OF.ACCTS\",\"PRI.ACTIVE.ACCTS\",\"PRI.OVERDUE.ACCTS\",\"PRI.DISBURSED.AMOUNT\",\"SEC.NO.OF.ACCTS\",\"SEC.ACTIVE.ACCTS\",\"SEC.OVERDUE.ACCTS\",\"SEC.SANCTIONED.AMOUNT\",\"SEC.DISBURSED.AMOUNT\",\"PRIMARY.INSTAL.AMT\",\"SEC.INSTAL.AMT\",\"NEW.ACCTS.IN.LAST.SIX.MONTHS\",\"DELINQUENT.ACCTS.IN.LAST.SIX.MONTHS\",\"AVERAGE.ACCT.AGE\",\"AVE.MONTH\",\"CREDIT.HISTORY.LENGTH\",\"CREDIT.MONTH\",\"NO.OF_INQUIRIES\",\"loan_default\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 2050560"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"mytrain.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"mytrain.hex\", column: \"Employment.Type\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"mytrain.hex\", column: \"Employment.Type\""
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn {\"frame\":\"mytrain.hex\",\"column\":\"Employment.Type\",\"method\":\"mean\"}"
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"mytrain.hex\", column: \"PERFORM_CNS.SCORE.DESCRIPTION\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"mytrain.hex\", column: \"PERFORM_CNS.SCORE.DESCRIPTION\""
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn {\"frame\":\"mytrain.hex\",\"column\":\"PERFORM_CNS.SCORE.DESCRIPTION\",\"method\":\"mean\"}"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameData \"mytrain.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"mytrain.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\mytest.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\mytest.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\mytest.csv\"]\n  destination_frame: \"mytest.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 37\n  single_quotes: false\n  column_names: [\"UniqueID\",\"disbursed_amount\",\"asset_cost\",\"ltv\",\"branch_id\",\"supplier_id\",\"manufacturer_id\",\"Current_pincode_ID\",\"Employment.Type\",\"State_ID\",\"Employee_code_ID\",\"MobileNo_Avl_Flag\",\"Aadhar_flag\",\"PAN_flag\",\"VoterID_flag\",\"Driving_flag\",\"Passport_flag\",\"PERFORM_CNS.SCORE\",\"PERFORM_CNS.SCORE.DESCRIPTION\",\"PRI.NO.OF.ACCTS\",\"PRI.ACTIVE.ACCTS\",\"PRI.OVERDUE.ACCTS\",\"PRI.DISBURSED.AMOUNT\",\"SEC.NO.OF.ACCTS\",\"SEC.ACTIVE.ACCTS\",\"SEC.OVERDUE.ACCTS\",\"SEC.SANCTIONED.AMOUNT\",\"SEC.DISBURSED.AMOUNT\",\"PRIMARY.INSTAL.AMT\",\"SEC.INSTAL.AMT\",\"NEW.ACCTS.IN.LAST.SIX.MONTHS\",\"DELINQUENT.ACCTS.IN.LAST.SIX.MONTHS\",\"AVERAGE.ACCT.AGE\",\"AVE.MONTH\",\"CREDIT.HISTORY.LENGTH\",\"CREDIT.MONTH\",\"NO.OF_INQUIRIES\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 971759"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"mytest.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"mytest.hex\", column: \"Employment.Type\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"mytest.hex\", column: \"Employment.Type\""
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn {\"frame\":\"mytest.hex\",\"column\":\"Employment.Type\",\"method\":\"mean\"}"
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"mytest.hex\", column: \"PERFORM_CNS.SCORE.DESCRIPTION\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"mytest.hex\", column: \"PERFORM_CNS.SCORE.DESCRIPTION\""
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn {\"frame\":\"mytest.hex\",\"column\":\"PERFORM_CNS.SCORE.DESCRIPTION\",\"method\":\"mean\"}"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"mytest.hex\", column: \"PERFORM_CNS.SCORE.DESCRIPTION\""
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn {\"frame\":\"mytest.hex\",\"column\":\"PERFORM_CNS.SCORE.DESCRIPTION\",\"method\":\"mean\"}"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"mytest.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "assist splitFrame, \"mytrain.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "splitFrame \"mytrain.hex\", [0.75], [\"frame_0.750\",\"frame_0.250\"], 415965"
+    },
+    {
+      "type": "cs",
+      "input": "buildModel \"gbm\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel 'gbm', {\"model_id\":\"gbm-90d5ff17-e4b2-4f8d-b263-9a50390d9328\",\"training_frame\":\"frame_0.750\",\"validation_frame\":\"frame_0.250\",\"nfolds\":0,\"response_column\":\"loan_default\",\"ignored_columns\":[],\"ignore_const_cols\":true,\"ntrees\":50,\"max_depth\":5,\"min_rows\":10,\"nbins\":20,\"seed\":-1,\"learn_rate\":0.1,\"sample_rate\":1,\"col_sample_rate\":1,\"score_each_iteration\":false,\"score_tree_interval\":0,\"nbins_top_level\":1024,\"nbins_cats\":1024,\"r2_stopping\":1.7976931348623157e+308,\"stopping_rounds\":0,\"stopping_metric\":\"AUTO\",\"stopping_tolerance\":0.001,\"max_runtime_secs\":0,\"learn_rate_annealing\":1,\"distribution\":\"AUTO\",\"huber_alpha\":0.9,\"checkpoint\":\"\",\"col_sample_rate_per_tree\":1,\"min_split_improvement\":0.00001,\"histogram_type\":\"AUTO\",\"categorical_encoding\":\"AUTO\",\"custom_metric_func\":\"\",\"export_checkpoints_dir\":\"\",\"monotone_constraints\":[],\"build_tree_one_node\":false,\"sample_rate_per_class\":[],\"col_sample_rate_change_per_level\":1,\"max_abs_leafnode_pred\":1.7976931348623157e+308,\"pred_noise_bandwidth\":0,\"calibrate_model\":false}"
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"gbm-90d5ff17-e4b2-4f8d-b263-9a50390d9328\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"gbm-90d5ff17-e4b2-4f8d-b263-9a50390d9328\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"gbm-90d5ff17-e4b2-4f8d-b263-9a50390d9328\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"gbm-90d5ff17-e4b2-4f8d-b263-9a50390d9328\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"gbm-90d5ff17-e4b2-4f8d-b263-9a50390d9328\", frame: \"mytest.hex\", predictions_frame: \"prediction-2e4447be-e8a2-4dfc-8726-ea3d97b5c025\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-2e4447be-e8a2-4dfc-8726-ea3d97b5c025\""
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\mytest.csv\",\"C:\\\\Users\\\\Akash\\\\Desktop\\\\mytrain.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\mytest.csv\",\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\mytrain.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\mytrain.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\mytrain.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\mytrain.csv\"]\n  destination_frame: \"mytrain1.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 38\n  single_quotes: false\n  column_names: [\"UniqueID\",\"disbursed_amount\",\"asset_cost\",\"ltv\",\"branch_id\",\"supplier_id\",\"manufacturer_id\",\"Current_pincode_ID\",\"Employment.Type\",\"State_ID\",\"Employee_code_ID\",\"MobileNo_Avl_Flag\",\"Aadhar_flag\",\"PAN_flag\",\"VoterID_flag\",\"Driving_flag\",\"Passport_flag\",\"PERFORM_CNS.SCORE\",\"PERFORM_CNS.SCORE.DESCRIPTION\",\"PRI.NO.OF.ACCTS\",\"PRI.ACTIVE.ACCTS\",\"PRI.OVERDUE.ACCTS\",\"PRI.DISBURSED.AMOUNT\",\"SEC.NO.OF.ACCTS\",\"SEC.ACTIVE.ACCTS\",\"SEC.OVERDUE.ACCTS\",\"SEC.SANCTIONED.AMOUNT\",\"SEC.DISBURSED.AMOUNT\",\"PRIMARY.INSTAL.AMT\",\"SEC.INSTAL.AMT\",\"NEW.ACCTS.IN.LAST.SIX.MONTHS\",\"DELINQUENT.ACCTS.IN.LAST.SIX.MONTHS\",\"AVERAGE.ACCT.AGE\",\"AVE.MONTH\",\"CREDIT.HISTORY.LENGTH\",\"CREDIT.MONTH\",\"NO.OF_INQUIRIES\",\"loan_default\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 2050560"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\mytrain.csv\"]\n  destination_frame: \"mytrain1.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 38\n  single_quotes: false\n  column_names: [\"UniqueID\",\"disbursed_amount\",\"asset_cost\",\"ltv\",\"branch_id\",\"supplier_id\",\"manufacturer_id\",\"Current_pincode_ID\",\"Employment.Type\",\"State_ID\",\"Employee_code_ID\",\"MobileNo_Avl_Flag\",\"Aadhar_flag\",\"PAN_flag\",\"VoterID_flag\",\"Driving_flag\",\"Passport_flag\",\"PERFORM_CNS.SCORE\",\"PERFORM_CNS.SCORE.DESCRIPTION\",\"PRI.NO.OF.ACCTS\",\"PRI.ACTIVE.ACCTS\",\"PRI.OVERDUE.ACCTS\",\"PRI.DISBURSED.AMOUNT\",\"SEC.NO.OF.ACCTS\",\"SEC.ACTIVE.ACCTS\",\"SEC.OVERDUE.ACCTS\",\"SEC.SANCTIONED.AMOUNT\",\"SEC.DISBURSED.AMOUNT\",\"PRIMARY.INSTAL.AMT\",\"SEC.INSTAL.AMT\",\"NEW.ACCTS.IN.LAST.SIX.MONTHS\",\"DELINQUENT.ACCTS.IN.LAST.SIX.MONTHS\",\"AVERAGE.ACCT.AGE\",\"AVE.MONTH\",\"CREDIT.HISTORY.LENGTH\",\"CREDIT.MONTH\",\"NO.OF_INQUIRIES\",\"loan_default\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 2050560"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\mytrain.csv\"]\n  destination_frame: \"mytrain1.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 38\n  single_quotes: false\n  column_names: [\"UniqueID\",\"disbursed_amount\",\"asset_cost\",\"ltv\",\"branch_id\",\"supplier_id\",\"manufacturer_id\",\"Current_pincode_ID\",\"Employment.Type\",\"State_ID\",\"Employee_code_ID\",\"MobileNo_Avl_Flag\",\"Aadhar_flag\",\"PAN_flag\",\"VoterID_flag\",\"Driving_flag\",\"Passport_flag\",\"PERFORM_CNS.SCORE\",\"PERFORM_CNS.SCORE.DESCRIPTION\",\"PRI.NO.OF.ACCTS\",\"PRI.ACTIVE.ACCTS\",\"PRI.OVERDUE.ACCTS\",\"PRI.DISBURSED.AMOUNT\",\"SEC.NO.OF.ACCTS\",\"SEC.ACTIVE.ACCTS\",\"SEC.OVERDUE.ACCTS\",\"SEC.SANCTIONED.AMOUNT\",\"SEC.DISBURSED.AMOUNT\",\"PRIMARY.INSTAL.AMT\",\"SEC.INSTAL.AMT\",\"NEW.ACCTS.IN.LAST.SIX.MONTHS\",\"DELINQUENT.ACCTS.IN.LAST.SIX.MONTHS\",\"AVERAGE.ACCT.AGE\",\"AVE.MONTH\",\"CREDIT.HISTORY.LENGTH\",\"CREDIT.MONTH\",\"NO.OF_INQUIRIES\",\"loan_default\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 2050560"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\mytrain.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\mytrain.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\mytrain.csv\"]\n  destination_frame: \"mytrain2.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 38\n  single_quotes: false\n  column_names: [\"UniqueID\",\"disbursed_amount\",\"asset_cost\",\"ltv\",\"branch_id\",\"supplier_id\",\"manufacturer_id\",\"Current_pincode_ID\",\"Employment.Type\",\"State_ID\",\"Employee_code_ID\",\"MobileNo_Avl_Flag\",\"Aadhar_flag\",\"PAN_flag\",\"VoterID_flag\",\"Driving_flag\",\"Passport_flag\",\"PERFORM_CNS.SCORE\",\"PERFORM_CNS.SCORE.DESCRIPTION\",\"PRI.NO.OF.ACCTS\",\"PRI.ACTIVE.ACCTS\",\"PRI.OVERDUE.ACCTS\",\"PRI.DISBURSED.AMOUNT\",\"SEC.NO.OF.ACCTS\",\"SEC.ACTIVE.ACCTS\",\"SEC.OVERDUE.ACCTS\",\"SEC.SANCTIONED.AMOUNT\",\"SEC.DISBURSED.AMOUNT\",\"PRIMARY.INSTAL.AMT\",\"SEC.INSTAL.AMT\",\"NEW.ACCTS.IN.LAST.SIX.MONTHS\",\"DELINQUENT.ACCTS.IN.LAST.SIX.MONTHS\",\"AVERAGE.ACCT.AGE\",\"AVE.MONTH\",\"CREDIT.HISTORY.LENGTH\",\"CREDIT.MONTH\",\"NO.OF_INQUIRIES\",\"loan_default\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 2050560"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"mytrain2.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"mytrain2.hex\", column: \"Employment.Type\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"mytrain2.hex\", column: \"Employment.Type\""
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn {\"frame\":\"mytrain2.hex\",\"column\":\"Employment.Type\",\"method\":\"median\",\"combineMethod\":\"high\"}"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"mytrain2.hex\", column: \"Employment.Type\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"mytrain2.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\mytest.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\mytest.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\mytest.csv\"]\n  destination_frame: \"mytest1.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 37\n  single_quotes: false\n  column_names: [\"UniqueID\",\"disbursed_amount\",\"asset_cost\",\"ltv\",\"branch_id\",\"supplier_id\",\"manufacturer_id\",\"Current_pincode_ID\",\"Employment.Type\",\"State_ID\",\"Employee_code_ID\",\"MobileNo_Avl_Flag\",\"Aadhar_flag\",\"PAN_flag\",\"VoterID_flag\",\"Driving_flag\",\"Passport_flag\",\"PERFORM_CNS.SCORE\",\"PERFORM_CNS.SCORE.DESCRIPTION\",\"PRI.NO.OF.ACCTS\",\"PRI.ACTIVE.ACCTS\",\"PRI.OVERDUE.ACCTS\",\"PRI.DISBURSED.AMOUNT\",\"SEC.NO.OF.ACCTS\",\"SEC.ACTIVE.ACCTS\",\"SEC.OVERDUE.ACCTS\",\"SEC.SANCTIONED.AMOUNT\",\"SEC.DISBURSED.AMOUNT\",\"PRIMARY.INSTAL.AMT\",\"SEC.INSTAL.AMT\",\"NEW.ACCTS.IN.LAST.SIX.MONTHS\",\"DELINQUENT.ACCTS.IN.LAST.SIX.MONTHS\",\"AVERAGE.ACCT.AGE\",\"AVE.MONTH\",\"CREDIT.HISTORY.LENGTH\",\"CREDIT.MONTH\",\"NO.OF_INQUIRIES\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 971759"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"mytest1.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"mytest1.hex\", column: \"Employment.Type\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"mytest1.hex\", column: \"Employment.Type\""
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn {\"frame\":\"mytest1.hex\",\"column\":\"Employment.Type\",\"method\":\"median\",\"combineMethod\":\"high\"}"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"mytest1.hex\", column: \"Employment.Type\""
+    },
+    {
+      "type": "cs",
+      "input": "assist splitFrame, \"mytrain2.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "splitFrame \"mytrain2.hex\", [0.75], [\"aa_0.750\",\"aa_0.250\"], 216236"
+    },
+    {
+      "type": "cs",
+      "input": "buildModel \"gbm\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel 'gbm', {\"model_id\":\"gbm-923b4393-959b-4d72-86c3-fb75cbc32b6f\",\"training_frame\":\"aa_0.750\",\"validation_frame\":\"aa_0.250\",\"nfolds\":0,\"response_column\":\"loan_default\",\"ignored_columns\":[],\"ignore_const_cols\":true,\"ntrees\":50,\"max_depth\":5,\"min_rows\":10,\"nbins\":20,\"seed\":-1,\"learn_rate\":0.1,\"sample_rate\":1,\"col_sample_rate\":1,\"score_each_iteration\":false,\"score_tree_interval\":0,\"nbins_top_level\":1024,\"nbins_cats\":1024,\"r2_stopping\":1.7976931348623157e+308,\"stopping_rounds\":0,\"stopping_metric\":\"AUTO\",\"stopping_tolerance\":0.001,\"max_runtime_secs\":0,\"learn_rate_annealing\":1,\"distribution\":\"AUTO\",\"huber_alpha\":0.9,\"checkpoint\":\"\",\"col_sample_rate_per_tree\":1,\"min_split_improvement\":0.00001,\"histogram_type\":\"AUTO\",\"categorical_encoding\":\"AUTO\",\"custom_metric_func\":\"\",\"export_checkpoints_dir\":\"\",\"monotone_constraints\":[],\"build_tree_one_node\":false,\"sample_rate_per_class\":[],\"col_sample_rate_change_per_level\":1,\"max_abs_leafnode_pred\":1.7976931348623157e+308,\"pred_noise_bandwidth\":0,\"calibrate_model\":false}"
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"gbm-923b4393-959b-4d72-86c3-fb75cbc32b6f\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"gbm-923b4393-959b-4d72-86c3-fb75cbc32b6f\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"gbm-923b4393-959b-4d72-86c3-fb75cbc32b6f\", frame: \"mytest1.hex\", predictions_frame: \"prediction-b88ffe8c-10d3-4363-b5de-59ac8df397ad\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-b88ffe8c-10d3-4363-b5de-59ac8df397ad\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel \"glrm\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel 'glrm', {\"model_id\":\"glrm-fe798c74-f45e-48ff-bc3f-9bfb5a841194\",\"training_frame\":\"aa_0.750\",\"validation_frame\":\"aa_0.250\",\"ignored_columns\":[],\"ignore_const_cols\":true,\"loading_name\":\"\",\"transform\":\"NONE\",\"k\":1,\"loss\":\"Quadratic\",\"loss_by_col_idx\":[],\"multi_loss\":\"Categorical\",\"period\":1,\"regularization_x\":\"None\",\"regularization_y\":\"None\",\"gamma_x\":0,\"gamma_y\":0,\"max_iterations\":1000,\"max_updates\":2000,\"init_step_size\":1,\"min_step_size\":0.0001,\"seed\":-1,\"init\":\"PlusPlus\",\"svd_method\":\"Randomized\",\"expand_user_y\":true,\"impute_original\":false,\"recover_svd\":false,\"score_each_iteration\":false,\"max_runtime_secs\":0,\"export_checkpoints_dir\":\"\"}"
+    },
+    {
+      "type": "cs",
+      "input": "buildModel \"drf\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel 'drf', {\"model_id\":\"drf-55ea0306-df97-497a-9586-dfd06c70a51c\",\"training_frame\":\"aa_0.750\",\"validation_frame\":\"aa_0.250\",\"nfolds\":\"7\",\"response_column\":\"loan_default\",\"ignored_columns\":[],\"ignore_const_cols\":true,\"ntrees\":50,\"max_depth\":20,\"min_rows\":1,\"nbins\":20,\"seed\":-1,\"mtries\":-1,\"sample_rate\":0.6320000290870666,\"score_each_iteration\":false,\"score_tree_interval\":0,\"fold_assignment\":\"AUTO\",\"nbins_top_level\":1024,\"nbins_cats\":1024,\"r2_stopping\":1.7976931348623157e+308,\"stopping_rounds\":0,\"stopping_metric\":\"AUTO\",\"stopping_tolerance\":0.001,\"max_runtime_secs\":0,\"checkpoint\":\"\",\"col_sample_rate_per_tree\":1,\"min_split_improvement\":0.00001,\"histogram_type\":\"AUTO\",\"categorical_encoding\":\"AUTO\",\"distribution\":\"AUTO\",\"custom_metric_func\":\"\",\"export_checkpoints_dir\":\"\",\"keep_cross_validation_models\":true,\"keep_cross_validation_predictions\":false,\"keep_cross_validation_fold_assignment\":false,\"build_tree_one_node\":false,\"sample_rate_per_class\":[],\"binomial_double_trees\":false,\"col_sample_rate_change_per_level\":1,\"calibrate_model\":false}"
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"drf-55ea0306-df97-497a-9586-dfd06c70a51c\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"drf-55ea0306-df97-497a-9586-dfd06c70a51c\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"drf-55ea0306-df97-497a-9586-dfd06c70a51c\", frame: \"mytest1.hex\", predictions_frame: \"prediction-f2253235-4463-45e0-bea3-bcd989c02e3f\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-f2253235-4463-45e0-bea3-bcd989c02e3f\""
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML"
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML {\"training_frame\":\"aa_0.750\",\"response_column\":\"loan_default\",\"validation_frame\":\"aa_0.250\",\"seed\":-1,\"max_models\":0,\"max_runtime_secs\":3600,\"stopping_metric\":\"AUTO\",\"sort_metric\":null,\"stopping_rounds\":3,\"stopping_tolerance\":-1,\"nfolds\":5,\"balance_classes\":false,\"class_sampling_factors\":[],\"max_after_balance_size\":5,\"keep_cross_validation_predictions\":true,\"keep_cross_validation_models\":true,\"keep_cross_validation_fold_assignment\":false,\"export_checkpoints_dir\":\"\",\"ignored_columns\":[],\"exclude_algos\":[\"GLM\",\"DRF\",\"DeepLearning\"],\"project_name\":\"ml\"}"
+    },
+    {
+      "type": "cs",
+      "input": "getLeaderboard \"ml\""
+    },
+    {
+      "type": "cs",
+      "input": "getLeaderboard \"ml\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"StackedEnsemble_AllModels_AutoML_20190421_172757\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"StackedEnsemble_AllModels_AutoML_20190421_172757\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"StackedEnsemble_AllModels_AutoML_20190421_172757\", frame: \"mytest1.hex\", predictions_frame: \"prediction-dd8f731a-0c69-4fe3-8c31-2af1f1af116e\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-dd8f731a-0c69-4fe3-8c31-2af1f1af116e\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"GBM_grid_1_AutoML_20190421_172757_model_12\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"GBM_grid_1_AutoML_20190421_172757_model_12\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"GBM_grid_1_AutoML_20190421_172757_model_12\", frame: \"mytest1.hex\", predictions_frame: \"prediction-37ccac04-a501-4265-a2dc-5d0a4637cdd8\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-37ccac04-a501-4265-a2dc-5d0a4637cdd8\""
+    }
+  ]
+}
