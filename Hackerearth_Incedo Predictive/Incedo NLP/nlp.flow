@@ -1,0 +1,105 @@
+{
+  "version": "1.0.0",
+  "cells": [
+    {
+      "type": "cs",
+      "input": "assist"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\train_dataset.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\train_dataset.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\train_dataset.csv\"]\n  destination_frame: \"train_dataset1.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 8\n  single_quotes: false\n  column_names: [\"ID\",\"Essayset\",\"min_score\",\"max_score\",\"clarity\",\"coherent\",\"EssayText\",\"score\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"String\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 275312"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"train_dataset1.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "assist splitFrame, \"train_dataset1.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "splitFrame \"train_dataset1.hex\", [0.75], [\"frame_0.750\",\"frame_0.250\"], 509483"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\test_dataset.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\test_dataset.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\test_dataset.csv\"]\n  destination_frame: \"test_dataset.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 7\n  single_quotes: false\n  column_names: [\"ID\",\"Essayset\",\"min_score\",\"max_score\",\"clarity\",\"coherent\",\"EssayText\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"String\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 83152"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"test_dataset.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel \"gbm\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel 'gbm', {\"model_id\":\"gbm-0261e11c-6326-4c86-aab7-9b00212eaa4b\",\"training_frame\":\"frame_0.750\",\"validation_frame\":\"frame_0.250\",\"nfolds\":0,\"response_column\":\"score\",\"ignored_columns\":[],\"ignore_const_cols\":true,\"ntrees\":50,\"max_depth\":5,\"min_rows\":10,\"nbins\":20,\"seed\":-1,\"learn_rate\":0.1,\"sample_rate\":1,\"col_sample_rate\":1,\"score_each_iteration\":false,\"score_tree_interval\":0,\"nbins_top_level\":1024,\"nbins_cats\":1024,\"r2_stopping\":1.7976931348623157e+308,\"stopping_rounds\":0,\"stopping_metric\":\"AUTO\",\"stopping_tolerance\":0.001,\"max_runtime_secs\":0,\"learn_rate_annealing\":1,\"distribution\":\"AUTO\",\"huber_alpha\":0.9,\"checkpoint\":\"\",\"col_sample_rate_per_tree\":1,\"min_split_improvement\":0.00001,\"histogram_type\":\"AUTO\",\"categorical_encoding\":\"AUTO\",\"custom_metric_func\":\"\",\"export_checkpoints_dir\":\"\",\"monotone_constraints\":[],\"build_tree_one_node\":false,\"sample_rate_per_class\":[],\"col_sample_rate_change_per_level\":1,\"max_abs_leafnode_pred\":1.7976931348623157e+308,\"pred_noise_bandwidth\":0,\"calibrate_model\":false,\"check_constant_response\":true}"
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"gbm-0261e11c-6326-4c86-aab7-9b00212eaa4b\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"gbm-0261e11c-6326-4c86-aab7-9b00212eaa4b\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"gbm-0261e11c-6326-4c86-aab7-9b00212eaa4b\", frame: \"test_dataset.hex\", predictions_frame: \"prediction-3dde74e9-e77b-44dc-a41f-e80a179364ea\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-3dde74e9-e77b-44dc-a41f-e80a179364ea\""
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML"
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML {\"training_frame\":\"frame_0.750\",\"response_column\":\"score\",\"validation_frame\":\"frame_0.250\",\"seed\":-1,\"max_models\":0,\"max_runtime_secs\":3600,\"stopping_metric\":\"AUTO\",\"sort_metric\":null,\"stopping_rounds\":3,\"stopping_tolerance\":-1,\"nfolds\":5,\"balance_classes\":false,\"class_sampling_factors\":[],\"max_after_balance_size\":5,\"keep_cross_validation_predictions\":true,\"keep_cross_validation_models\":true,\"keep_cross_validation_fold_assignment\":false,\"export_checkpoints_dir\":\"\",\"ignored_columns\":[],\"exclude_algos\":[\"GLM\",\"DRF\",\"DeepLearning\"],\"project_name\":\"nlp\"}"
+    },
+    {
+      "type": "cs",
+      "input": "getLeaderboard \"nlp\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"StackedEnsemble_AllModels_AutoML_20190424_003145\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"StackedEnsemble_AllModels_AutoML_20190424_003145\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"StackedEnsemble_AllModels_AutoML_20190424_003145\", frame: \"test_dataset.hex\", predictions_frame: \"prediction-a449d1dd-5993-444e-b764-b89c396bf354\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-a449d1dd-5993-444e-b764-b89c396bf354\""
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "version": "1.0.0",
+  "cells": [
+    {
+      "type": "cs",
+      "input": "assist"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\train_file.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\train_file.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\train_file.csv\"]\n  destination_frame: \"train_file.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 17\n  single_quotes: false\n  column_names: [\"Patient_ID\",\"YEAR\",\"LocationDesc\",\"Subtopic\",\"Greater_Risk_Question\",\"Description\",\"Sample_Size\",\"Sex\",\"Race\",\"Grade\",\"GeoLocation\",\"QuestionCode\",\"StratID1\",\"StratID2\",\"StratID3\",\"StratificationType\",\"Greater_Risk_Probability\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Enum\",\"Enum\",\"Numeric\",\"Enum\",\"Enum\",\"Numeric\",\"Enum\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 766183"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"train_file.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"train_file.hex\", column: \"GeoLocation\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"train_file.hex\", column: \"GeoLocation\""
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn {\"frame\":\"train_file.hex\",\"column\":\"GeoLocation\",\"method\":\"mean\"}"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"train_file.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "assist splitFrame, \"train_file.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "splitFrame \"train_file.hex\", [0.75], [\"frame_0.750\",\"frame_0.250\"], 61227"
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML"
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML {\"training_frame\":\"frame_0.750\",\"response_column\":\"Greater_Risk_Probability\",\"validation_frame\":\"frame_0.250\",\"seed\":-1,\"max_models\":0,\"max_runtime_secs\":3600,\"stopping_metric\":\"AUTO\",\"sort_metric\":null,\"stopping_rounds\":3,\"stopping_tolerance\":-1,\"nfolds\":5,\"balance_classes\":false,\"class_sampling_factors\":[],\"max_after_balance_size\":5,\"keep_cross_validation_predictions\":true,\"keep_cross_validation_models\":true,\"keep_cross_validation_fold_assignment\":false,\"export_checkpoints_dir\":\"\",\"ignored_columns\":[],\"exclude_algos\":[],\"project_name\":\"get over\"}"
+    },
+    {
+      "type": "cs",
+      "input": "getLeaderboard \"get over\""
+    },
+    {
+      "type": "cs",
+      "input": "getLeaderboard \"get over\""
+    },
+    {
+      "type": "cs",
+      "input": "getLeaderboard \"get over\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"GBM_1_AutoML_20190424_163835\""
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\test_file.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\test_file.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\test_file.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\test_file.csv\" ]"
+    }
+  ]
+}
