@@ -1,0 +1,117 @@
+{
+  "version": "1.0.0",
+  "cells": [
+    {
+      "type": "cs",
+      "input": "assist"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\train_file.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\train_file.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\train_file.csv\"]\n  destination_frame: \"train_file.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 17\n  single_quotes: false\n  column_names: [\"Patient_ID\",\"YEAR\",\"LocationDesc\",\"Subtopic\",\"Greater_Risk_Question\",\"Description\",\"Sample_Size\",\"Sex\",\"Race\",\"Grade\",\"GeoLocation\",\"QuestionCode\",\"StratID1\",\"StratID2\",\"StratID3\",\"StratificationType\",\"Greater_Risk_Probability\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Enum\",\"Enum\",\"Numeric\",\"Enum\",\"Enum\",\"Numeric\",\"Enum\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 766183"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"train_file.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"train_file.hex\", column: \"GeoLocation\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"train_file.hex\", column: \"GeoLocation\""
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn {\"frame\":\"train_file.hex\",\"column\":\"GeoLocation\",\"method\":\"mean\"}"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"train_file.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\test_file.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\test_file.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\test_file.csv\"]\n  destination_frame: \"test_file.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 16\n  single_quotes: false\n  column_names: [\"Patient_ID\",\"YEAR\",\"LocationDesc\",\"Subtopic\",\"Greater_Risk_Question\",\"Description\",\"Sample_Size\",\"Sex\",\"Race\",\"Grade\",\"GeoLocation\",\"QuestionCode\",\"StratID1\",\"StratID2\",\"StratID3\",\"StratificationType\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Enum\",\"Enum\",\"Numeric\",\"Enum\",\"Enum\",\"Numeric\",\"Enum\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 493067"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"test_file.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "changeColumnType frame: \"test_file.hex\", column: \"GeoLocation\", type: 'int'"
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn frame: \"test_file.hex\", column: \"GeoLocation\""
+    },
+    {
+      "type": "cs",
+      "input": "imputeColumn {\"frame\":\"test_file.hex\",\"column\":\"GeoLocation\",\"method\":\"mean\"}"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"test_file.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "assist splitFrame, \"train_file.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "splitFrame \"train_file.hex\", [0.75], [\"frame_0.750\",\"frame_0.250\"], 446377"
+    },
+    {
+      "type": "cs",
+      "input": "buildModel \"gbm\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel 'gbm', {\"model_id\":\"gbm-d7a706f9-b190-4ed0-9463-80318539d3f8\",\"training_frame\":\"frame_0.750\",\"validation_frame\":\"frame_0.250\",\"nfolds\":0,\"response_column\":\"Greater_Risk_Probability\",\"ignored_columns\":[\"Patient_ID\"],\"ignore_const_cols\":true,\"ntrees\":50,\"max_depth\":5,\"min_rows\":10,\"nbins\":20,\"seed\":-1,\"learn_rate\":0.1,\"sample_rate\":1,\"col_sample_rate\":1,\"score_each_iteration\":false,\"score_tree_interval\":0,\"nbins_top_level\":1024,\"nbins_cats\":1024,\"r2_stopping\":1.7976931348623157e+308,\"stopping_rounds\":0,\"stopping_metric\":\"AUTO\",\"stopping_tolerance\":0.001,\"max_runtime_secs\":0,\"learn_rate_annealing\":1,\"distribution\":\"AUTO\",\"huber_alpha\":0.9,\"checkpoint\":\"\",\"col_sample_rate_per_tree\":1,\"min_split_improvement\":0.00001,\"histogram_type\":\"AUTO\",\"categorical_encoding\":\"AUTO\",\"custom_metric_func\":\"\",\"export_checkpoints_dir\":\"\",\"monotone_constraints\":[],\"build_tree_one_node\":false,\"sample_rate_per_class\":[],\"col_sample_rate_change_per_level\":1,\"max_abs_leafnode_pred\":1.7976931348623157e+308,\"pred_noise_bandwidth\":0,\"calibrate_model\":false}"
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"gbm-d7a706f9-b190-4ed0-9463-80318539d3f8\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"gbm-d7a706f9-b190-4ed0-9463-80318539d3f8\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"gbm-d7a706f9-b190-4ed0-9463-80318539d3f8\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"gbm-d7a706f9-b190-4ed0-9463-80318539d3f8\", frame: \"test_file.hex\", predictions_frame: \"prediction-48e0e8d1-7804-4fd4-afe6-9f25884188e7\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-48e0e8d1-7804-4fd4-afe6-9f25884188e7\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameData \"prediction-48e0e8d1-7804-4fd4-afe6-9f25884188e7\""
+    }
+  ]
+}
