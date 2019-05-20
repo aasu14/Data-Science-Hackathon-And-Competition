@@ -1,0 +1,85 @@
+{
+  "version": "1.0.0",
+  "cells": [
+    {
+      "type": "cs",
+      "input": "assist"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Downloads\\\\train_file.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\train_file.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\train_file.csv\"]\n  destination_frame: \"train_file.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 17\n  single_quotes: false\n  column_names: [\"ID\",\"Place\",\"location\",\"date\",\"status\",\"job_title\",\"summary\",\"positives\",\"negatives\",\"advice_to_mgmt\",\"overall\",\"score_1\",\"score_2\",\"score_3\",\"score_4\",\"score_5\",\"score_6\"]\n  column_types: [\"Numeric\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"String\",\"String\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 986315"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"train_file.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "assist splitFrame, \"train_file.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "splitFrame \"train_file.hex\", [0.75], [\"frame_0.750\",\"frame_0.250\"], 210176"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Downloads\\\\test_file.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\test_file.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\test_file.csv\"]\n  destination_frame: \"test_file.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 16\n  single_quotes: false\n  column_names: [\"ID\",\"Place\",\"location\",\"date\",\"status\",\"job_title\",\"summary\",\"positives\",\"negatives\",\"advice_to_mgmt\",\"score_1\",\"score_2\",\"score_3\",\"score_4\",\"score_5\",\"score_6\"]\n  column_types: [\"Numeric\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"Enum\",\"String\",\"String\",\"String\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 915429"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"test_file.hex\""
+    },
+    {
+      "type": "cs",
+      "input": ""
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML"
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML {\"training_frame\":\"frame_0.750\",\"response_column\":\"overall\",\"validation_frame\":\"frame_0.250\",\"seed\":-1,\"max_models\":0,\"max_runtime_secs\":3600,\"stopping_metric\":\"AUTO\",\"sort_metric\":null,\"stopping_rounds\":3,\"stopping_tolerance\":-1,\"nfolds\":5,\"balance_classes\":false,\"class_sampling_factors\":[],\"max_after_balance_size\":5,\"keep_cross_validation_predictions\":true,\"keep_cross_validation_models\":true,\"keep_cross_validation_fold_assignment\":false,\"export_checkpoints_dir\":\"\",\"ignored_columns\":[],\"exclude_algos\":[\"GLM\",\"DRF\",\"XGBoost\",\"DeepLearning\",\"StackedEnsemble\"],\"project_name\":\"finall\"}"
+    },
+    {
+      "type": "cs",
+      "input": "getLeaderboard \"finall\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"GBM_grid_1_AutoML_20190521_014550_model_1\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"GBM_grid_1_AutoML_20190521_014550_model_1\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"GBM_grid_1_AutoML_20190521_014550_model_1\", frame: \"test_file.hex\", predictions_frame: \"prediction-22a968d2-c777-4f40-a522-3148b3220d34\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-22a968d2-c777-4f40-a522-3148b3220d34\""
+    }
+  ]
+}
