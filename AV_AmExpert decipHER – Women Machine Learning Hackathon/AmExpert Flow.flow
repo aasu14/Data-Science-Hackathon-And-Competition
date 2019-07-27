@@ -1,0 +1,77 @@
+{
+  "version": "1.0.0",
+  "cells": [
+    {
+      "type": "cs",
+      "input": "assist"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Downloads\\\\train.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\train.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\train.csv\"]\n  destination_frame: \"train.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 44\n  single_quotes: false\n  column_names: [\"id\",\"account_type\",\"gender\",\"age\",\"region_code\",\"cc_cons_apr\",\"dc_cons_apr\",\"cc_cons_may\",\"dc_cons_may\",\"cc_cons_jun\",\"dc_cons_jun\",\"cc_count_apr\",\"cc_count_may\",\"cc_count_jun\",\"dc_count_apr\",\"dc_count_may\",\"dc_count_jun\",\"card_lim\",\"personal_loan_active\",\"vehicle_loan_active\",\"personal_loan_closed\",\"vehicle_loan_closed\",\"investment_1\",\"investment_2\",\"investment_3\",\"investment_4\",\"debit_amount_apr\",\"credit_amount_apr\",\"debit_count_apr\",\"credit_count_apr\",\"max_credit_amount_apr\",\"debit_amount_may\",\"credit_amount_may\",\"credit_count_may\",\"debit_count_may\",\"max_credit_amount_may\",\"debit_amount_jun\",\"credit_amount_jun\",\"credit_count_jun\",\"debit_count_jun\",\"max_credit_amount_jun\",\"loan_enq\",\"emi_active\",\"cc_cons\"]\n  column_types: [\"Numeric\",\"Enum\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 339164"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"train.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Downloads\\\\test_9K3DBWQ.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\test_9K3DBWQ.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Downloads\\\\test_9K3DBWQ.csv\"]\n  destination_frame: \"test_9K3DBWQ.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 43\n  single_quotes: false\n  column_names: [\"id\",\"account_type\",\"gender\",\"age\",\"region_code\",\"cc_cons_apr\",\"dc_cons_apr\",\"cc_cons_may\",\"dc_cons_may\",\"cc_cons_jun\",\"dc_cons_jun\",\"cc_count_apr\",\"cc_count_may\",\"cc_count_jun\",\"dc_count_apr\",\"dc_count_may\",\"dc_count_jun\",\"card_lim\",\"personal_loan_active\",\"vehicle_loan_active\",\"personal_loan_closed\",\"vehicle_loan_closed\",\"investment_1\",\"investment_2\",\"investment_3\",\"investment_4\",\"debit_amount_apr\",\"credit_amount_apr\",\"debit_count_apr\",\"credit_count_apr\",\"max_credit_amount_apr\",\"debit_amount_may\",\"credit_amount_may\",\"credit_count_may\",\"debit_count_may\",\"max_credit_amount_may\",\"debit_amount_jun\",\"credit_amount_jun\",\"credit_count_jun\",\"debit_count_jun\",\"max_credit_amount_jun\",\"loan_enq\",\"emi_active\"]\n  column_types: [\"Numeric\",\"Enum\",\"Enum\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Enum\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 140997"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"test_9K3DBWQ.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "assist splitFrame, \"train.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "splitFrame \"train.hex\", [0.75], [\"frame_0.750\",\"frame_0.250\"], 166222"
+    },
+    {
+      "type": "cs",
+      "input": "buildModel \"gbm\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel 'gbm', {\"model_id\":\"gbm-2af63c77-e364-4379-be78-9c4233e00054\",\"training_frame\":\"frame_0.750\",\"validation_frame\":\"frame_0.250\",\"nfolds\":\"5\",\"response_column\":\"cc_cons\",\"ignored_columns\":[],\"ignore_const_cols\":true,\"ntrees\":50,\"max_depth\":5,\"min_rows\":10,\"nbins\":20,\"seed\":-1,\"learn_rate\":0.1,\"sample_rate\":1,\"col_sample_rate\":1,\"score_each_iteration\":false,\"score_tree_interval\":0,\"fold_assignment\":\"AUTO\",\"nbins_top_level\":1024,\"nbins_cats\":1024,\"r2_stopping\":1.7976931348623157e+308,\"stopping_rounds\":0,\"stopping_metric\":\"AUTO\",\"stopping_tolerance\":0.001,\"max_runtime_secs\":0,\"learn_rate_annealing\":1,\"distribution\":\"AUTO\",\"huber_alpha\":0.9,\"checkpoint\":\"\",\"col_sample_rate_per_tree\":1,\"min_split_improvement\":0.00001,\"histogram_type\":\"AUTO\",\"categorical_encoding\":\"AUTO\",\"custom_metric_func\":\"\",\"export_checkpoints_dir\":\"\",\"monotone_constraints\":[],\"keep_cross_validation_models\":true,\"keep_cross_validation_predictions\":false,\"keep_cross_validation_fold_assignment\":false,\"build_tree_one_node\":false,\"sample_rate_per_class\":[],\"col_sample_rate_change_per_level\":1,\"max_abs_leafnode_pred\":1.7976931348623157e+308,\"pred_noise_bandwidth\":0,\"calibrate_model\":false}"
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"gbm-2af63c77-e364-4379-be78-9c4233e00054\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"gbm-2af63c77-e364-4379-be78-9c4233e00054\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"gbm-2af63c77-e364-4379-be78-9c4233e00054\", frame: \"test_9K3DBWQ.hex\", predictions_frame: \"prediction-fb3ca213-c716-4441-8c57-a1d5359089a9\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-fb3ca213-c716-4441-8c57-a1d5359089a9\""
+    }
+  ]
+}
