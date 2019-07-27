@@ -1,0 +1,117 @@
+{
+  "version": "1.0.0",
+  "cells": [
+    {
+      "type": "cs",
+      "input": "assist"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\Beer Train Data Set.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\Beer Train Data Set.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\Beer Train Data Set.csv\"]\n  destination_frame: \"Beer_Train_Data_Set.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 10\n  single_quotes: false\n  column_names: [\"ABV\",\"Brewing Company\",\"Food Paring\",\"Glassware Used\",\"Beer Name\",\"Ratings\",\"Style Name\",\"Cellar Temperature\",\"Serving Temperature\",\"Score\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Enum\",\"Enum\",\"Numeric\",\"Numeric\",\"Enum\",\"Enum\",\"Enum\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 2234368"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"Beer_Train_Data_Set.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "assist splitFrame, \"Beer_Train_Data_Set.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "splitFrame \"Beer_Train_Data_Set.hex\", [0.75], [\"frame_0.750\",\"frame_0.250\"], 389501"
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\Beer Test Data Set.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\Beer Test Data Set.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\Beer Test Data Set.csv\"]\n  destination_frame: \"Beer_Test_Data_Set.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 10\n  single_quotes: false\n  column_names: [\"ABV\",\"Brewing Company\",\"Food Paring\",\"Glassware Used\",\"Beer Name\",\"Ratings\",\"Style Name\",\"Cellar Temperature\",\"Serving Temperature\",\"Score\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Enum\",\"Enum\",\"Numeric\",\"Numeric\",\"Enum\",\"Enum\",\"Enum\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 243884"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"Beer_Test_Data_Set.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "importFiles [ \"C:\\\\Users\\\\Akash\\\\Desktop\\\\Beer Test Data Set.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\Beer Test Data Set.csv\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"nfs:\\\\C:\\\\Users\\\\Akash\\\\Desktop\\\\Beer Test Data Set.csv\"]\n  destination_frame: \"Beer_Test_Data_Set1.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 9\n  single_quotes: false\n  column_names: [\"ABV\",\"Brewing Company\",\"Food Paring\",\"Glassware Used\",\"Beer Name\",\"Ratings\",\"Style Name\",\"Cellar Temperature\",\"Serving Temperature\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Enum\",\"Enum\",\"Numeric\",\"Numeric\",\"Enum\",\"Enum\",\"Enum\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 242595"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"Beer_Test_Data_Set1.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel \"deeplearning\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel 'deeplearning', {\"model_id\":\"deeplearning-0d862079-0cb8-4302-8ed9-ffddcf044b3e\",\"training_frame\":\"frame_0.750\",\"validation_frame\":\"frame_0.250\",\"nfolds\":\"7\",\"response_column\":\"Score\",\"ignored_columns\":[],\"ignore_const_cols\":true,\"activation\":\"Rectifier\",\"hidden\":[200,200],\"epochs\":10,\"variable_importances\":true,\"fold_assignment\":\"AUTO\",\"score_each_iteration\":false,\"checkpoint\":\"\",\"use_all_factor_levels\":true,\"standardize\":true,\"train_samples_per_iteration\":-2,\"adaptive_rate\":true,\"input_dropout_ratio\":0,\"l1\":0,\"l2\":0,\"loss\":\"Automatic\",\"distribution\":\"AUTO\",\"huber_alpha\":0.9,\"score_interval\":5,\"score_training_samples\":10000,\"score_validation_samples\":0,\"score_duty_cycle\":0.1,\"stopping_rounds\":5,\"stopping_metric\":\"AUTO\",\"stopping_tolerance\":0,\"max_runtime_secs\":0,\"autoencoder\":false,\"categorical_encoding\":\"AUTO\",\"export_checkpoints_dir\":\"\",\"keep_cross_validation_models\":true,\"keep_cross_validation_predictions\":false,\"keep_cross_validation_fold_assignment\":false,\"pretrained_autoencoder\":\"\",\"target_ratio_comm_to_comp\":0.05,\"seed\":-1,\"rho\":0.99,\"epsilon\":1e-8,\"nesterov_accelerated_gradient\":true,\"max_w2\":3.4028235e+38,\"initial_weight_distribution\":\"UniformAdaptive\",\"regression_stop\":0.000001,\"diagnostics\":true,\"fast_mode\":true,\"force_load_balance\":true,\"single_node_mode\":false,\"shuffle_training_data\":false,\"missing_values_handling\":\"MeanImputation\",\"quiet_mode\":false,\"sparse\":false,\"col_major\":false,\"average_activation\":0,\"sparsity_beta\":0,\"max_categorical_features\":2147483647,\"reproducible\":false,\"export_weights_and_biases\":false,\"mini_batch_size\":1,\"elastic_averaging\":false}"
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"deeplearning-0d862079-0cb8-4302-8ed9-ffddcf044b3e\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"deeplearning-0d862079-0cb8-4302-8ed9-ffddcf044b3e\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"deeplearning-0d862079-0cb8-4302-8ed9-ffddcf044b3e\", frame: \"Beer_Test_Data_Set1.hex\", predictions_frame: \"prediction-c760f981-8f9d-4ba1-b93c-ab0401940347\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-c760f981-8f9d-4ba1-b93c-ab0401940347\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel \"gbm\""
+    },
+    {
+      "type": "cs",
+      "input": "buildModel 'gbm', {\"model_id\":\"gbm-7c1097fc-2e1a-437a-8309-2e8f27920e3a\",\"training_frame\":\"frame_0.750\",\"validation_frame\":\"frame_0.250\",\"nfolds\":\"7\",\"response_column\":\"Score\",\"ignored_columns\":[],\"ignore_const_cols\":true,\"ntrees\":50,\"max_depth\":5,\"min_rows\":10,\"nbins\":20,\"seed\":-1,\"learn_rate\":0.1,\"sample_rate\":1,\"col_sample_rate\":1,\"score_each_iteration\":false,\"score_tree_interval\":0,\"fold_assignment\":\"AUTO\",\"nbins_top_level\":1024,\"nbins_cats\":1024,\"r2_stopping\":1.7976931348623157e+308,\"stopping_rounds\":0,\"stopping_metric\":\"AUTO\",\"stopping_tolerance\":0.001,\"max_runtime_secs\":0,\"learn_rate_annealing\":1,\"distribution\":\"AUTO\",\"huber_alpha\":0.9,\"checkpoint\":\"\",\"col_sample_rate_per_tree\":1,\"min_split_improvement\":0.00001,\"histogram_type\":\"AUTO\",\"categorical_encoding\":\"AUTO\",\"custom_metric_func\":\"\",\"export_checkpoints_dir\":\"\",\"monotone_constraints\":[],\"keep_cross_validation_models\":true,\"keep_cross_validation_predictions\":false,\"keep_cross_validation_fold_assignment\":false,\"build_tree_one_node\":false,\"sample_rate_per_class\":[],\"col_sample_rate_change_per_level\":1,\"max_abs_leafnode_pred\":1.7976931348623157e+308,\"pred_noise_bandwidth\":0,\"calibrate_model\":false}"
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"gbm-7c1097fc-2e1a-437a-8309-2e8f27920e3a\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"gbm-7c1097fc-2e1a-437a-8309-2e8f27920e3a\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"gbm-7c1097fc-2e1a-437a-8309-2e8f27920e3a\", frame: \"Beer_Test_Data_Set1.hex\", predictions_frame: \"prediction-9b949cdb-3d47-43d2-b58d-917c9e520e27\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"prediction-9b949cdb-3d47-43d2-b58d-917c9e520e27\""
+    }
+  ]
+}
