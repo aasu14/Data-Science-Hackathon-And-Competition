@@ -1,0 +1,3 @@
+1. first date and time colume convert into datetimens64
+2. using encoder in the catgorical column
+3. then using machine learning algoriithm to find the traffic analysis
