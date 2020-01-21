@@ -30,5 +30,6 @@ Can you predict how popular a song will be in the future?
 RMSE(Root Mean Squared Error)
 
 ## Leaderboard
-Rank 60
+## Rank 60
+
 ![image](https://github.com/aasu14/Data-Science-Hackathon-And-Competition/blob/master/Machine%20Hack%20Chartbusters%20Prediction%20%20Foretell%20The%20Popularity%20Of%20Songs/ChartbustersPrediction-scaled.jpg)
