@@ -1,5 +1,5 @@
 # Chartbusters-Prediction-Foretell-The-Popularity-Of-Songs
-![image](https://user-images.githubusercontent.com/37707687/72431243-5e137680-37ba-11ea-8654-770ece1b9640.png)
+![image](https://github.com/aasu14/Data-Science-Hackathon-And-Competition/blob/master/Machine%20Hack%20Chartbusters%20Prediction%20%20Foretell%20The%20Popularity%20Of%20Songs/ch.png)
 
 One of our customers strongly believes in technology and has recently backed up its platform using Machine Learning and Artificial Intelligence. Based on data collected from multiple sources on different songs and various artist attributes our customer is excited to challenge the MachineHack community.
 
@@ -31,3 +31,4 @@ RMSE(Root Mean Squared Error)
 
 ## Leaderboard
 Rank 60
+![image](https://github.com/aasu14/Data-Science-Hackathon-And-Competition/blob/master/Machine%20Hack%20Chartbusters%20Prediction%20%20Foretell%20The%20Popularity%20Of%20Songs/ChartbustersPrediction-scaled.jpg)
