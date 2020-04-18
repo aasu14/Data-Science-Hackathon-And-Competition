@@ -18,6 +18,6 @@ You can use any programming language or statistical software.
 You are free to use solution checker as many times as you want.
 Directly using the labels from the original dataset will lead to disqualification
 
-### Private Rank- 6th/2436
+### Private Rank- 6th/2436 [https://datahack.analyticsvidhya.com/contest/janatahack-e-commerce-analytics-ml-hackathon/#LeaderBoard]
 ### Public Rank- 8th/2436
 ### Accuracy- 0.9218518519
