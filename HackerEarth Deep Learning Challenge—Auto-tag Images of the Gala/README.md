@@ -21,3 +21,7 @@ Deep Learning is an application of artificial intelligence (AI) that provides sy
 Here’s presenting HackerEarth’s Deep Learning Challenge—Auto-tag Images of the Gala.
 
 This challenge is designed to help you improve your Machine Learning and Deep Learning skills by competing and learning from fellow participants.
+
+### Private LB- 93
+### Public LB- 90
+[https://www.hackerearth.com/challenges/competitive/hackerearth-deep-learning-challenge-auto-tag-images-gala/leaderboard/]
