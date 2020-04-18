@@ -1,2 +1,6 @@
-# Data-Science-Project-Competition
-Kaggle and AV Competition
+## Data-Science-Hackathon-and-Competition
+### Hackerearth
+### MachineHack
+### AnalyticsVidhya
+### Techgig 
+### Zindi
