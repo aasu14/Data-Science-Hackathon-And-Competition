@@ -13,3 +13,11 @@ The benefits of practicing this problem by using Machine Learning or Deep Learni
 This challenge encourages you to apply your Machine Learning skills to build models that classify images into multiple categories
 This challenge helps you enhance your knowledge of classification actively. It is one of the basic building blocks of Machine Learning and Deep Learning techniques.
 You are required to build a model that auto-tag images and classifies them into various categories of aesthetics and entertainment for a gala night.
+
+## Overview
+
+Deep Learning is an application of artificial intelligence (AI) that provides systems with the ability to automatically learn and improve from experience without being explicitly programmed. Deep Learning is a science that determines patterns in data. These patterns provide deeper meaning to problems, help you to understand problems better, and solve these problems efficiently. HackerEarth’s Deep Learning challenge is designed to help you improve your Deep Learning skills by competing and learning from fellow participants.
+
+Here’s presenting HackerEarth’s Deep Learning Challenge—Auto-tag Images of the Gala.
+
+This challenge is designed to help you improve your Machine Learning and Deep Learning skills by competing and learning from fellow participants.
