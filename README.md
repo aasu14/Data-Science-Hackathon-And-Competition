@@ -1,6 +1,6 @@
 ## Data-Science-Hackathon-and-Competition
-### Hackerearth
-### MachineHack
-### AnalyticsVidhya
-### Techgig 
-### Zindi
+* **[Hackerearth](https://www.hackerearth.com/@hackth)** 
+* **[MachineHack](https://www.machinehack.com/members/hackth/)** 
+* **[AnalyticsVidhya](https://www.analyticsvidhya.com/user/akash_13)**
+* **[Techgig]()**
+* **[Zindi]()**
