@@ -17,3 +17,4 @@ Target Variable: grade
 
 ### Public LB: 49th rank
 ### Private LB: 7th rank
+[https://www.machinehack.com/course/metal-furnace-challenge-weekend-hackathon-1/leaderboard]
