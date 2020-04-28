@@ -13,3 +13,4 @@ Brush up your skills in NLP and get ready for our longest JanataHack till date f
 ## leaderboard
 ### Public LB- 61 rank
 ### Pricvate LB- 55 rank
+[https://datahack.analyticsvidhya.com/contest/janatahack-nlp-hackathon/#LeaderBoard]
