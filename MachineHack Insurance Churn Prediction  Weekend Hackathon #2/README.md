@@ -15,4 +15,6 @@ Test.csv – 11303 observations.
 Sample Submission – Sample format for the submission.
 
 ## Leaderboard
-### 32 Rank
+### Public LB -> 12 rank
+### Private LB -> 32 rank
+[https://www.machinehack.com/course/insurance-churn-prediction-weekend-hackathon-2/leaderboard]
