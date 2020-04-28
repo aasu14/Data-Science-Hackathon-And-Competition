@@ -14,4 +14,4 @@ In a time of lockdowns, remote work, and general uncertainty, #ZindiWeekendz off
 All winning solutions will be shared as a public good on GitHub. We are committed to supporting partners implement these solutions and encourage anyone who is interested to reach out to us at zindi@zindi.africa.
 
 ## Leaderboard
-### 105 rank
+### Rank -> 105th
