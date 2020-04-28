@@ -1,4 +1,4 @@
-## Abou
+## About
 With more than 5000 submissions and 2500+ participants, we saw yet another JanataHack witnessing a lot of competition, sharing of interesting approaches by the top finishing hackers and of course loads and loads of learning for everyone involved.
 
 This time we have chosen Natural Language Processing as the theme for JanataHack. 
@@ -9,3 +9,7 @@ Natural Language Processing is expected to be worth 30 Billion USD by 2024 with 
 
 
 Brush up your skills in NLP and get ready for our longest JanataHack till date filled with loads of learning and competition. Here are a few free resources from Analytics Vidhya to help you get ready:
+
+## leaderboard
+### Public LB- 61 rank
+### Pricvate LB- 55 rank
