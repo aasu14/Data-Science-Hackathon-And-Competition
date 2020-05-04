@@ -19,3 +19,4 @@ We challenge you to build a model that detects the emotions of Tom or Jerry in e
 ## Leaderboard
 ### Public LB: 37 rank
 ### Private LB: 56 rank
+[https://www.hackerearth.com/challenges/competitive/hackerearth-deep-learning-challenge-emotion-detection-tom-jerry-cartoon/leaderboard/]
