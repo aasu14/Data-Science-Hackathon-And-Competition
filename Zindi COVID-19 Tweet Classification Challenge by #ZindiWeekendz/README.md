@@ -20,3 +20,4 @@ This hackathon is sponsored by Microsoft (Nasdaq “MSFT” @microsoft). Microso
 
 ## LeaderBoard
 ### 57th rank
+[https://zindi.africa/hackathons/covid-19-tweet-classification-challenge/leaderboard]
