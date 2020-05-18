@@ -8,3 +8,4 @@ This weekend we bring to you another JanataHack, this time relating to mobility 
 ## Leaderboard
 ### Public Leaderboard : 98 rank
 ### Private Leaderboard : 62 rank
+[https://datahack.analyticsvidhya.com/contest/janatahack-mobility-analytics/#LeaderBoard]
