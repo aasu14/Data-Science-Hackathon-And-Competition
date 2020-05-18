@@ -21,3 +21,4 @@ Started Notebook – A simple benchmark notebook
 ## LeaderBoard
 ### Public LB: 33 rank
 ### Private LB : 8th rank
+[https://www.machinehack.com/course/classifying-movie-scripts-predict-the-movie-genre/leaderboard]
