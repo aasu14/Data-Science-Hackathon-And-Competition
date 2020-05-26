@@ -14,3 +14,4 @@ Target Variable: class
 ## LeaderBoard :
 ### Private LB: 43th rank
 ### Public LB: 33th rank
+[https://www.machinehack.com/course/glass-quality-prediction-weekend-hackathon-6/leaderboard]
