@@ -17,3 +17,4 @@ We challenge you to build a model that determines the total amount of an invoice
 ## LeaderBoard
 ### Private LB: 28th rank
 ### Public LB: 2nd rank
+[https://www.hackerearth.com/challenges/competitive/hackerearth-machine-learning-challenge-calculate-earnings-restaurant/leaderboard/]
