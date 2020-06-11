@@ -16,3 +16,4 @@ We challenge you to build a model that analyzes sentiments of a tweet and classi
 
 ## Leaderboard
 ### Current LB: 3rd rank
+[https://www.hackerearth.com/challenges/competitive/hackerearth-machine-learning-challenge-mothers-day/leaderboard/]
