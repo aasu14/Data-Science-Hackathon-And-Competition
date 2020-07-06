@@ -14,7 +14,7 @@ This challenge will encourage you to apply your Machine Learning skills to build
 This challenge will help you enhance your knowledge of classification actively. It is one of the basic building blocks of Machine Learning and Deep Learning
 We challenge you to build a model that auto-tags images and classifies them into various categories of Indian classical dance forms.
 
-## LEaderboard
+## Leaderboard
 ### Public LB: 4th rank (AUC- 100%)
 ### Private LB:
 
