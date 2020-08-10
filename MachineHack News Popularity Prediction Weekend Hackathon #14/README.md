@@ -8,3 +8,7 @@ The provided dataset summarizes a heterogeneous set of features about articles p
 Train.csv - 7928 rows x 59 columns
 Test.csv - 31716 rows x 58 columns
 Sample_Submission.csv - Acceptable submission format
+
+## LeaderBoard:
+### Current LB: 86th rank
+[https://www.machinehack.com/hackathons/news_popularity_prediction_weekend_hackathon_14]
