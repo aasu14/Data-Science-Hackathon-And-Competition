@@ -24,3 +24,7 @@ err_malign: error in malign skin measurements
 malign_penalty: penalty applied due to measurement error in the lab
 damage_ratio: the ratio of damage to total spread on the skin
 tumor_size: size of melanoma_tumor
+
+## LeaderBoard:
+### Current LB: 51th rank
+[https://www.machinehack.com/hackathons/melanoma_tumor_size_prediction_weekend_hackathon_15]
