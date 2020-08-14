@@ -16,6 +16,6 @@ We challenge you to build a model that auto-tags images and classifies them into
 
 ## Leaderboard
 ### Public LB: 4th rank (AUC- 100%)
-### Private LB: 2nd rank (Auc- 100%)
+### Private LB: 1st rank 
 
 [https://www.hackerearth.com/challenges/competitive/hackerearth-deep-learning-challenge-identify-dance-form/leaderboard/]
