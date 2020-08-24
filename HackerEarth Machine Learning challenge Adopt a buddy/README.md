@@ -26,5 +26,5 @@ This challenge is designed to help you improve your Machine Learning skills by c
 
 ## LeaderBoard:
 ### Public LB: 3rd Rank
-### Private LB: 
+### Private LB: -
 [https://www.hackerearth.com/challenges/competitive/hackerearth-machine-learning-challenge-pet-adoption/leaderboard/]
