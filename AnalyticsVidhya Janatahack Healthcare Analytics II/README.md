@@ -36,6 +36,6 @@ case_id: Unique id for each case
 Stay: Length of stay for the patient w.r.t each case id in test data
 
 ## Leaderboard:
-Public LB: 98th rank 
-Private LB: 158th rank
+### Public LB: 98th rank 
+### Private LB: 158th rank
 [https://datahack.analyticsvidhya.com/contest/janatahack-healthcare-analytics-ii/#LeaderBoard]
