@@ -15,6 +15,6 @@ This challenge will help you enhance your knowledge of regression. Regression is
 We challenge you to build a predictive model that determines the lowest price at which a good can be sold on the day of sale.
 
 ## LeaderBoard
-### Private LB:
+### Private LB: 6th rank
 ### Public LB: 2nd rank
 [https://www.hackerearth.com/challenges/competitive/hackerearth-machine-learning-challenge-predict-the-lowest-price/leaderboard]
