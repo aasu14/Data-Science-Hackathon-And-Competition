@@ -36,3 +36,4 @@ Optimizing multi-class log loss to generalize well on unseen data
 ## LeaderBoard:
 ### Private LB: 25th rank
 ### Public LB: 23rd rank
+[https://www.machinehack.com/hackathons/fake_news_content_detection_weekend_hackathon_20/leaderboard]
