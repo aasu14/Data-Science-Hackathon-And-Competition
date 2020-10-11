@@ -32,5 +32,5 @@ You are required to upload your source code under 'Upload Source File'.
 
 ## LeaderBoard:
 ### Public LB: 1st rank
-### Private LB: 
+### Private LB: 1st rank
 [https://www.hackerearth.com/challenges/competitive/hackerearth-machine-learning-challenge-movie-plot-summarization/leaderboard/]
