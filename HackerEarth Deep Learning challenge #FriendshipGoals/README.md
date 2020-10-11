@@ -20,5 +20,5 @@ We challenge you to build a predictive model that classifies an image of friends
 
 ## LeaderBoard:
 ### Public LB: 3rd rank (100% AUC)
-### Private LB: 
+### Private LB: 2nd rank
 [https://www.hackerearth.com/challenges/competitive/hackerearth-deep-learning-challenge-friendship-day/leaderboard/]
