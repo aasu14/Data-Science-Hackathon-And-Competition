@@ -34,3 +34,4 @@ Embold is a general-purpose static code analyzer that helps developers analyze a
 
 ## LeaderBoard:
 ### 30th Rank
+[https://www.machinehack.com/hackathons/predict_github_issues_embold_sponsored_hackathon/leaderboard]
