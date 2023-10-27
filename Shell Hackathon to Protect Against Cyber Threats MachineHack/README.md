@@ -10,10 +10,13 @@ One common method they employ is embedding this code in seemingly harmless media
  Don’t miss an opportunity to demonstrate your abilities, innovate, and make a name for yourself in the world. 
 
 ## Data Description
-###ID: A unique identifier, either an integer or string, used to distinguish each row in the dataset.
-###Text: A string containing the textual content associated with each record.
-###ContainsCode: A boolean indicating whether the "Text" field contains any code snippets.
-###CodeList: A list or array storing code snippets extracted from the "Text" field, if applicable.
+### ID: A unique identifier, either an integer or string, used to distinguish each row in the dataset.
+
+### Text: A string containing the textual content associated with each record.
+
+### ContainsCode: A boolean indicating whether the "Text" field contains any code snippets.
+
+### CodeList: A list or array storing code snippets extracted from the "Text" field, if applicable.
 
 ## LeaderBoard
 ### Public LB: 7th rank
